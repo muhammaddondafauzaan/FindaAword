@@ -1,7 +1,8 @@
 #include <iostream>
 #include <cstring>
-
+#include <algorithm>
 using namespace std;
+
 const int cols = 16, rows = 15;
 
  char words[rows][cols] = {"tgbwwinterwsesn",
@@ -20,10 +21,11 @@ const int cols = 16, rows = 15;
                                 "pdcrzmsngrdnrpz",
                                 "ohnkzwaterjgtra"};
 
-char *getWordVertical(int);
 char *reverse(char *);
 bool searchVertical(char *);
 bool searchHorizontal(char *);
+bool reverseHor(char in[]);
+
 
 
 int main()
@@ -33,13 +35,14 @@ int main()
     cin>>n;
     for (int i=0;i<n;i++){
         cin.getline(word,16,'\n');
-        if (searchVertical(word) || searchHorizontal(word))
+        if (searchVertical(word) || searchHorizontal(word) || reverseHor(word))
             cout << "Ada\n";
         else 
             cout << "Tidak Ada\n";
     }
     return 0;
 }
+
 bool searchVertical(char in[]){
 	char *cek;
 	char word[rows];
@@ -65,6 +68,19 @@ bool reverseVer(char in[]){
         reverse(word, word+strlen(word));
         cek=strstr(word, in);
         if(cek!= NULL){
+
+
+bool reverseHor(char in[]){
+	char *cek;
+	char word[rows];
+	for (int i=0;i<15;i++){
+    	for(int j=0;j<rows;j++){
+	    	word[j]=words[i][j];
+		}
+	    reverse(word, word+strlen(word));
+	    cek=strstr(word, in);
+	    if(cek!=NULL){
+
 	        return true;
 	    }
     }
