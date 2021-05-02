@@ -43,6 +43,33 @@ int main()
     return 0;
 }
 
+bool searchVertical(char in[]){
+	char *cek;
+	char word[rows];
+	for (int i=0;i<rows;i++){
+        for (int j=0;j<rows;j++){
+            word[j]=words[j][i];
+        }
+        cek=strstr(word, in);
+        if(cek!=NULL){
+	        return true;
+	    }
+    }
+    return false;
+}
+
+bool reverseVer(char in[]){
+	char *cek;
+	char word[rows];
+	for (int i=0;i<rows;i++){
+        for (int j = 0; j < 15; j++){
+            word[j] = words[j][i];
+        }
+        reverse(word, word+strlen(word));
+        cek=strstr(word, in);
+        if(cek!= NULL){
+
+
 bool reverseHor(char in[]){
 	char *cek;
 	char word[rows];
@@ -53,6 +80,7 @@ bool reverseHor(char in[]){
 	    reverse(word, word+strlen(word));
 	    cek=strstr(word, in);
 	    if(cek!=NULL){
+
 	        return true;
 	    }
     }
