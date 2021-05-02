@@ -1,7 +1,8 @@
 #include <iostream>
 #include <cstring>
-
+#include <algorithm>
 using namespace std;
+
 const int cols = 16, rows = 15;
 
  char words[rows][cols] = {"tgbwwinterwsesn",
@@ -20,7 +21,6 @@ const int cols = 16, rows = 15;
                                 "pdcrzmsngrdnrpz",
                                 "ohnkzwaterjgtra"};
 
-char *getWordVertical(int);
 char *reverse(char *);
 bool searchVertical(char *);
 bool searchHorizontal(char *);
@@ -44,15 +44,41 @@ int main()
 }
 
 bool searchHorizontal(char in[]){
-	char *cek;
+	char*cek;
 	for (int i=0;i<rows;i++){
         cek=strstr(words[i], in);
 	    if(cek!=NULL){
+        return true;
+      }
+  }
+  return false;
+}
+
+bool searchVertical(char in[]){
+	char *cek;
+	char word[rows];
+	for (int i=0;i<rows;i++){
+        for (int j=0;j<rows;j++){
+            word[j]=words[j][i];
+        }
+        cek=strstr(word, in);
+        if(cek!=NULL){
 	        return true;
 	    }
     }
     return false;
 }
+
+bool reverseVer(char in[]){
+	char *cek;
+	char word[rows];
+	for (int i=0;i<rows;i++){
+        for (int j = 0; j < 15; j++){
+            word[j] = words[j][i];
+        }
+        reverse(word, word+strlen(word));
+        cek=strstr(word, in);
+        if(cek!= NULL){
 
 bool reverseHor(char in[]){
 	char *cek;
@@ -64,6 +90,7 @@ bool reverseHor(char in[]){
 	    reverse(word, word+strlen(word));
 	    cek=strstr(word, in);
 	    if(cek!=NULL){
+
 	        return true;
 	    }
     }
