@@ -1,7 +1,8 @@
 #include <iostream>
 #include <cstring>
-
+#include <algorithm>
 using namespace std;
+
 const int cols = 16, rows = 15;
 
  char words[rows][cols] = {"tgbwwinterwsesn",
@@ -20,7 +21,6 @@ const int cols = 16, rows = 15;
                                 "pdcrzmsngrdnrpz",
                                 "ohnkzwaterjgtra"};
 
-char *getWordVertical(int);
 char *reverse(char *);
 bool searchVertical(char *);
 bool searchHorizontal(char *);
