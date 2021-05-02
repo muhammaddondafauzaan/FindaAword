@@ -25,7 +25,7 @@ char *reverse(char *);
 bool searchVertical(char *);
 bool searchHorizontal(char *);
 bool reverseHor(char in[]);
-
+bool reverseVer(char in[]);
 
 
 int main()
@@ -35,7 +35,7 @@ int main()
     cin>>n;
     for (int i=0;i<n;i++){
         cin.getline(word,16,'\n');
-        if (searchVertical(word) || searchHorizontal(word) || reverseHor(word))
+        if (searchVertical(word) || reverseVer(word) || searchHorizontal(word) || reverseHor(word))
             cout << "Ada\n";
         else 
             cout << "Tidak Ada\n";
@@ -79,6 +79,11 @@ bool reverseVer(char in[]){
         reverse(word, word+strlen(word));
         cek=strstr(word, in);
         if(cek!= NULL){
+	        return true;
+	    }
+    }
+    return false;
+}
 
 bool reverseHor(char in[]){
 	char *cek;
