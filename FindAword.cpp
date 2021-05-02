@@ -1,3 +1,7 @@
+/* 	Nama Anggota	:	Muhammad Donda Fauzaan		2017051036
+				Muhammad Rizki Kurniawan	2017051024
+				Nasywa Nathania Wirawan		2017051051	
+	Kelas		: 	B	*/
 #include <iostream>
 #include <cstring>
 #include <algorithm>
@@ -26,7 +30,6 @@ bool searchVertical(char *);
 bool searchHorizontal(char *);
 bool reverseHor(char in[]);
 bool reverseVer(char in[]);
-
 
 int main()
 {
