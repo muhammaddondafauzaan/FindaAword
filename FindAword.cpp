@@ -43,6 +43,17 @@ int main()
     return 0;
 }
 
+bool searchHorizontal(char in[]){
+	char*cek;
+	for (int i=0;i<rows;i++){
+        cek=strstr(words[i], in);
+	    if(cek!=NULL){
+        return true;
+      }
+  }
+  return false;
+}
+
 bool searchVertical(char in[]){
 	char *cek;
 	char word[rows];
@@ -68,7 +79,6 @@ bool reverseVer(char in[]){
         reverse(word, word+strlen(word));
         cek=strstr(word, in);
         if(cek!= NULL){
-
 
 bool reverseHor(char in[]){
 	char *cek;
