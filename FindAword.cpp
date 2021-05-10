@@ -77,12 +77,12 @@ bool reverseVer(char in[]){
 	char *cek;
 	char word[rows];
 	for (int i=0;i<rows;i++){
-        for (int j = 0; j < 15; j++){
-            word[j] = words[j][i];
+        for (int j=0;j<rows; j++){
+            word[j]=words[j][i];
         }
         reverse(word, word+strlen(word));
         cek=strstr(word, in);
-        if(cek!= NULL){
+        if(cek!=NULL){
 	        return true;
 	    }
     }
@@ -92,14 +92,13 @@ bool reverseVer(char in[]){
 bool reverseHor(char in[]){
 	char *cek;
 	char word[rows];
-	for (int i=0;i<15;i++){
+	for (int i=0;i<rows;i++){
     	for(int j=0;j<rows;j++){
 	    	word[j]=words[i][j];
 		}
 	    reverse(word, word+strlen(word));
 	    cek=strstr(word, in);
 	    if(cek!=NULL){
-
 	        return true;
 	    }
     }
